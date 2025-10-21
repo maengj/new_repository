@@ -1,0 +1,107 @@
+body {
+  background-color: black;
+}
+.text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+
+  fill: #ff0000;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 1;
+  /* stroke-dasharray: 10px;
+  stroke-dashoffset: 10px; */
+  stroke-miterlimit: 100;
+  /* 값이 커질수록 뾰족한 모서리 유지, 낮으면 잘려짐 */
+  /* filter: blur(0.5px); */
+  /* filter: drop-shadow(1px 1px white); */
+
+  animation-name: draw;
+  animation-duration: 5s;
+}
+.text:hover {
+  fill: blue;
+}
+
+@keyframes draw {
+  from {
+    stroke-dasharray: 300;
+    /* stroke-dasharray: <dash> <gap> <dash> <gap> ...; */
+
+    stroke-dashoffset: 300;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rain-dash1 {
+  stroke: white;
+  stroke-width: 3;
+  stroke-dasharray: 170;
+  stroke-dashoffset: 100;
+  filter: blur(3px);
+
+  animation-name: draw-rain1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.rain-dash2 {
+  stroke: white;
+  stroke-width: 0.5;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 50;
+
+  animation-name: draw-rain2;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+
+  animation-timing-function: linear;
+}
+.rain-dash3 {
+  stroke: white;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 100;
+
+  animation-name: draw-rain3;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes draw-rain1 {
+  from {
+    stroke-dasharray: 130;
+    stroke-dashoffset: 300;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-rain2 {
+  from {
+    stroke-dasharray: 130;
+    stroke-dashoffset: 600;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-rain3 {
+  from {
+    stroke-dasharray: 130;
+    stroke-dashoffset: 900;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
